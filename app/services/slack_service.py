@@ -30,3 +30,16 @@ def invite_users(channel: str, user_ids: list[str]):
         client.conversations_invite(channel=channel, users=','.join(user_ids))
     except SlackApiError as e:
         raise RuntimeError(f"Slack API error: {e.response['error']}")
+
+
+def token_info() -> dict:
+    """Return basic information about the Slack token using auth.test."""
+    try:
+        resp = client.auth_test()
+        return {
+            "user_id": resp.get("user_id"),
+            "team": resp.get("team"),
+            "url": resp.get("url"),
+        }
+    except SlackApiError as e:
+        raise RuntimeError(f"Slack API error: {e.response['error']}")

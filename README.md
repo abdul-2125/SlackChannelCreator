@@ -12,7 +12,7 @@ This application receives Google Forms submissions and creates Slack channels au
 3. Run the application:
    ```bash
    uvicorn main:app
-   ```
+```
 
 ## Example Request
 
@@ -24,3 +24,8 @@ Send a POST request to `/forms/webhook` with JSON body:
   "visibility": "public"
 }
 ```
+
+## Additional Endpoints
+
+- `POST /create-channel` - Create a Slack channel directly
+- `GET /debug/token-info` - Debug Slack token information

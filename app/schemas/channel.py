@@ -19,3 +19,21 @@ class ChannelRequestResponse(BaseModel):
 
     class Config:
         orm_mode = True
+
+
+class CreateChannelRequest(BaseModel):
+    channel_name: str
+    channel_type: Literal['Public', 'Private']
+    who_for: Optional[str] = None
+    submitted_by: Optional[str] = None
+
+
+class CreateChannelResponse(BaseModel):
+    channel_name: str
+    channel_id: str
+
+
+class TokenInfoResponse(BaseModel):
+    user_id: str
+    team: Optional[str] = None
+    url: Optional[str] = None
