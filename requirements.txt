@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+slack-sdk
+google-api-python-client
+sqlalchemy
+alembic
+python-dotenv
+pydantic
+httpx
